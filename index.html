@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>4 Skills Essential Test | Practice Platform</title>
+<style>
+:root{
+  --p-blue:#002E3B;
+  --p-blue-light:#004B5E;
+  --p-accent:#FFB81C;
+  --p-accent-dark:#D99800;
+  --ink:#1C242B;
+  --mut:#5A6B75;
+  --line:#D2DBDF;
+  --bg:#F2F5F7;
+  --panel:#FFFFFF;
+  --red:#D32F2F;
+  --ok:#2E7D32;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.topbar{background:var(--p-blue);color:#fff;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 4px rgba(0,0,0,.15)}
+.topbar .brand{font-weight:800;letter-spacing:.03em;font-size:1.05rem;display:flex;align-items:center;gap:10px}
+.topbar .badge-sim{background:var(--p-accent);color:var(--p-blue);padding:2px 8px;border-radius:3px;font-size:.72rem;font-weight:900;letter-spacing:.05em}
+.topbar .tin{font-size:.82rem;font-family:'Courier New',monospace;color:#CFD8DC}
+.statusbar{background:#E5ECEF;border-bottom:1px solid var(--line);padding:7px 20px;display:flex;justify-content:space-between;align-items:center;font-size:.82rem;color:var(--mut)}
+.bar{height:4px;background:#CFD8DC}
+.bar i{display:block;height:100%;background:var(--p-accent);transition:width .2s ease}
+main{max-width:760px;margin:0 auto;padding:16px 16px 40px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:24px 22px;box-shadow:0 1px 3px rgba(0,0,0,.04);margin-bottom:16px}
+.part-hd{display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid var(--p-blue);padding-bottom:10px;margin-bottom:16px}
+.part-hd b{color:var(--p-blue);font-size:1.15rem;font-weight:700}
+.part-hd span{font-size:.82rem;color:var(--mut);text-transform:uppercase;letter-spacing:.05em;font-weight:600}
+.instr{background:#E8F1F4;border-left:4px solid var(--p-blue);padding:12px 14px;font-size:.9rem;color:#0F333E;margin-bottom:16px}
+.qtext{font-size:1.18rem;font-weight:600;margin:14px 0;color:var(--ink);line-height:1.4}
+.rec{display:flex;align-items:center;gap:10px;font-size:.88rem;color:var(--mut);margin:12px 0}
+.rec .dot{width:11px;height:11px;border-radius:50%;background:#BBB}
+.rec.live .dot{background:var(--red);box-shadow:0 0 0 0 rgba(211,47,47,.6);animation:pulse 1.2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(211,47,47,.5)}70%{box-shadow:0 0 0 10px rgba(211,47,47,0)}100%{box-shadow:0 0 0 0 rgba(211,47,47,0)}}
+.timerbox{display:inline-block;border:1px solid var(--line);background:#FAFCFD;padding:8px 16px;font-family:'Courier New',monospace;font-size:1.35rem;font-weight:800;color:var(--p-blue);border-radius:4px;min-width:60px;text-align:center}
+input,textarea,select{width:100%;box-sizing:border-box;font:inherit;padding:10px 12px;border:1px solid #B0BEC5;border-radius:3px;background:#fff;color:var(--ink);margin:8px 0}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--p-blue);box-shadow:0 0 0 2px rgba(0,46,59,.15)}
+textarea{min-height:120px;font-family:inherit}
+.btnrow{display:flex;justify-content:flex-end;gap:10px;margin-top:16px;border-top:1px solid var(--line);padding-top:14px}
+button{font:inherit;font-weight:600;padding:9px 22px;border-radius:3px;border:1px solid #B0BEC5;background:#fff;color:var(--ink);cursor:pointer;transition:.15s ease}
+button:hover{background:#ECEFF1}
+button.pri{background:var(--p-blue);color:#fff;border-color:var(--p-blue)}
+button.pri:hover{background:var(--p-blue-light)}
+button.sec-sm{font-size:.8rem;padding:6px 14px;background:#F1F5F7;border-color:#CFD8DC;color:var(--p-blue)}
+button.sec-sm:hover{background:#E1E8EC}
+.mut{color:var(--mut);font-size:.85rem}
+.center{text-align:center}
+table{width:100%;border-collapse:collapse;font-size:.85rem}
+td,th{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#E8EFF2;color:var(--p-blue);font-weight:700}
+.score-hd{background:var(--p-blue);color:#fff;padding:22px 20px;text-align:center;border-radius:4px 4px 0 0}
+.score-hd .num{font-size:3.2rem;font-weight:800;font-family:'Courier New',monospace;line-height:1;margin:4px 0}
+.score-hd .lbl{font-size:.85rem;letter-spacing:.08em;opacity:.9;text-transform:uppercase}
+.score-sub{color:var(--p-accent);font-weight:700;font-size:.95rem;margin-top:4px}
+.lsrw{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:1px solid var(--line);border-top:none;background:#fff;margin-bottom:16px}
+.skill-card{padding:16px;border-top:1px solid var(--line);border-right:1px solid var(--line)}
+.skill-card:nth-child(2n){border-right:none}
+.sk-name{font-weight:700;color:var(--p-blue);font-size:.85rem;text-transform:uppercase;letter-spacing:.03em}
+.sk-num{font-size:1.8rem;font-weight:800;font-family:'Courier New',monospace;margin:4px 0}
+.sk-bar{height:6px;background:#E0E0E0;border-radius:3px;overflow:hidden}
+.sk-bar i{display:block;height:100%;background:var(--p-accent)}
+.badge{font-size:.74rem;border:1px solid var(--line);padding:2px 8px;border-radius:3px;color:var(--mut);background:#FAFCFD}
+details summary{cursor:pointer;font-weight:700;color:var(--p-blue)}
+.fallback-row{display:flex;justify-content:space-between;align-items:center;background:#FFF9E6;border:1px solid #FFE082;padding:6px 12px;border-radius:3px;margin:8px 0;font-size:.8rem;color:#795548}
+.tag-mode{display:inline-block;padding:2px 7px;border-radius:3px;font-size:.72rem;font-weight:700;text-transform:uppercase;margin-left:8px}
+.tag-mock{background:#E0F2F1;color:#004D40}
+.tag-drill{background:#FFF3E0;color:#E65100}
+.drill-card{background:#FAFBFD;border:1px solid var(--line);border-radius:4px;padding:16px;margin:16px 0}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">
+    <span>4 SKILLS ESSENTIAL TEST</span>
+    <span class="badge-sim">PRACTICE SIMULATOR</span>
+    <span id="modeTag"></span>
+  </div>
+  <div class="tin" id="tinTop">SIMULATION ID: SIM-4SET</div>
+</div>
+
+<main>
+  <div id="app"></div>
+</main>
+
+<script>
+// -------------------------------------------------------------
+// CONFIGURATION & TIMINGS
+// -------------------------------------------------------------
+const T_CONFIG = {
+  A: ['Repeat', 'Speaking', 'You will hear a sentence once. Repeat it exactly as you heard it.', 15],
+  B: ['Sentence Builds', 'Speaking', 'You will hear three short phrases in random order. Say them as one correct sentence.', 15],
+  C: ['Conversations', 'Listening', 'You will hear a short conversation and then a question. Answer with a word or short phrase.', 10],
+  D: ['Sentence Completion', 'Reading', 'Type ONE word that best fits the gap. Spelling and capitalization count.', 25],
+  E: ['Dictation', 'Listening + Writing', 'You will hear a sentence once. Type it exactly, with correct spelling, capitals and punctuation.', 25],
+  F: ['Passage Reconstruction', 'Reading + Writing', 'Read the passage. It disappears after 30 seconds. Rewrite it in your own words.', 90]
+};
+
+// -------------------------------------------------------------
+// 1. FULL MOCK QUESTION BANK (50+ UNIQUE ITEMS IN EACH SECTION)
+// -------------------------------------------------------------
+const MOCK_BANK = {
+  A: [
+    "Please switch off your computer before leaving the office.",
+    "Could you pass me that blue folder on the top shelf?",
+    "The client delivery is expected sometime this afternoon.",
+    "I am not entirely sure whether the client has replied yet.",
+    "She joined the organization shortly after graduating from university.",
+    "Our regional office relocated to a bigger facility last spring.",
+    "He usually takes the early morning train to avoid heavy traffic.",
+    "The annual presentation covered three primary operational concerns.",
+    "Everyone on the training floor was asked to keep their badges visible.",
+    "The corporate client requested a revised quotation by evening.",
+    "Although he disagreed with the proposal, he supported the final decision.",
+    "The warehouse logistics team was trained on the updated software.",
+    "She mentioned that the project budget had already been approved.",
+    "We were informed that the shipment would clear customs by Friday.",
+    "Despite several unexpected delays, the team met its quarterly target.",
+    "The new security policy applies to anyone who joined after January.",
+    "All trainees must log their attendance before nine o'clock.",
+    "The team leader distributed the operational guidelines this morning.",
+    "Please double check the account numbers before closing the ticket.",
+    "He volunteered to assist with customer calls during the rush hour.",
+    "The network connection was restored after thirty minutes of downtime.",
+    "Please submit your travel expenses before the end of this month.",
+    "The automated security update will install on all laptops tonight.",
+    "We need to reserve the meeting room at least two days in advance.",
+    "She received positive recognition for her active problem solving.",
+    "The human resources department published the updated holiday calendar.",
+    "Could you forward that financial spreadsheet directly to my email?",
+    "All outside visitors must sign the register at the reception desk.",
+    "The building maintenance crew inspected the emergency exits today.",
+    "Customer service calls are routinely monitored for quality evaluation.",
+    "The weekly project status briefing was moved to Thursday morning.",
+    "He asked for further clarification regarding the system requirements.",
+    "We should confirm the executive's calendar before booking the call.",
+    "The cafeteria will remain closed during the routine cleanliness check.",
+    "She completed the required compliance training ahead of schedule.",
+    "Our team received written appreciation from the regional director.",
+    "Please ensure your desk is completely clear before exiting the floor.",
+    "The delivery courier left the parcel with the ground floor security.",
+    "Management decided to postpone the quarterly outing until next month.",
+    "Technical glitches should be reported immediately to the helpdesk.",
+    "He delivered an informative summary during the morning briefing.",
+    "Please keep your mobile phones on silent mode while in the classroom.",
+    "The virtual conference was delayed due to an unexpected microphone issue.",
+    "Every scholar is expected to participate actively in speech drills.",
+    "The evaluation results will be shared by the batch coordinator.",
+    "She suggested reviewing the customer feedback before making changes.",
+    "The training room has been reserved for the entire afternoon.",
+    "We have scheduled an additional training session for tomorrow morning.",
+    "The project coordinator will email the presentation slides later today.",
+    "Please ensure your headset is securely plugged into the audio port.",
+    "The newly assigned shift roster will take effect starting next Monday.",
+    "Several team members offered helpful suggestions during the review."
+  ],
+  B: [
+    [["at the front counter", "the office manager", "was standing"], ["The office manager was standing at the front counter"]],
+    [["before the storm hit", "we finished", "the outdoor maintenance"], ["We finished the outdoor maintenance before the storm hit", "Before the storm hit we finished the outdoor maintenance"]],
+    [["that he submitted", "the application form", "was incomplete"], ["The application form that he submitted was incomplete"]],
+    [["a new work laptop", "every scholar", "receives"], ["Every scholar receives a new work laptop"]],
+    [["who joined recently", "the new trainee", "asked several questions"], ["The new trainee who joined recently asked several questions"]],
+    [["to avoid delays", "we should", "confirm the appointment early"], ["We should confirm the appointment early to avoid delays", "To avoid delays we should confirm the appointment early"]],
+    [["were cancelled", "due to low turnout", "the evening workshops"], ["The evening workshops were cancelled due to low turnout"]],
+    [["that had been damaged", "the courier replaced", "the shipment"], ["The courier replaced the shipment that had been damaged"]],
+    [["on the shared network", "the training schedule", "was uploaded"], ["The training schedule was uploaded on the shared network"]],
+    [["to improve fluency", "our batch attended", "extra speaking sessions"], ["Our batch attended extra speaking sessions to improve fluency"]],
+    [["in the cafeteria", "the lunch briefing", "will take place"], ["The lunch briefing will take place in the cafeteria"]],
+    [["after the audit", "the finance lead", "emailed the summary"], ["The finance lead emailed the summary after the audit", "After the audit the finance lead emailed the summary"]],
+    [["to resolve the escalation", "the senior engineer", "worked late"], ["The senior engineer worked late to resolve the escalation"]],
+    [["the revised proposal", "before leaving today", "please submit"], ["Please submit the revised proposal before leaving today"]],
+    [["on the glass board", "the project deadlines", "were written"], ["The project deadlines were written on the glass board"]],
+    [["across all teams", "the communication guidelines", "were shared"], ["The communication guidelines were shared across all teams"]],
+    [["during peak hours", "additional telephone agents", "are required"], ["Additional telephone agents are required during peak hours"]],
+    [["that we ordered", "the spare equipment", "arrived this morning"], ["The spare equipment that we ordered arrived this morning"]],
+    [["for the upcoming meeting", "the presentation slides", "are ready"], ["The presentation slides are ready for the upcoming meeting"]],
+    [["by tomorrow noon", "the finalized report", "must be submitted"], ["The finalized report must be submitted by tomorrow noon"]],
+    [["with the project lead", "a quick discussion", "she scheduled"], ["She scheduled a quick discussion with the project lead"]],
+    [["during the software upgrade", "clear guidelines", "were provided"], ["Clear guidelines were provided during the software upgrade"]],
+    [["to all team members", "the revised agenda", "was distributed"], ["The revised agenda was distributed to all team members"]],
+    [["without any delay", "the customer inquiry", "was resolved"], ["The customer inquiry was resolved without any delay"]],
+    [["on the second floor", "the conference room", "is located"], ["The conference room is located on the second floor"]],
+    [["before the review starts", "the documentation", "please verify"], ["Please verify the documentation before the review starts"]],
+    [["the new software", "all scholars", "were trained to operate"], ["All scholars were trained to operate the new software"]],
+    [["to maintain quality standards", "every phone call", "is evaluated"], ["Every phone call is evaluated to maintain quality standards"]],
+    [["in the main auditorium", "the opening remarks", "will begin"], ["The opening remarks will begin in the main auditorium"]],
+    [["before taking calls", "their headsets", "all trainees checked"], ["All trainees checked their headsets before taking calls"]],
+    [["for the regional client", "an urgent quotation", "they prepared"], ["They prepared an urgent quotation for the regional client"]],
+    [["by the end of the day", "the server maintenance", "will be completed"], ["The server maintenance will be completed by the end of the day"]],
+    [["that she created", "the project spreadsheet", "was very organized"], ["The project spreadsheet that she created was very organized"]],
+    [["to discuss the budget", "the committee members", "met yesterday"], ["The committee members met yesterday to discuss the budget"]],
+    [["in the company portal", "the updated policy", "has been posted"], ["The updated policy has been posted in the company portal"]],
+    [["during the presentation", "their microphones", "participants should mute"], ["Participants should mute their microphones during the presentation"]],
+    [["after several attempts", "the technical glitch", "was resolved"], ["The technical glitch was resolved after several attempts"]],
+    [["with great attention", "the customer request", "he handled"], ["He handled the customer request with great attention"]],
+    [["to ensure safety", "the emergency exits", "must stay clear"], ["The emergency exits must stay clear to ensure safety"]],
+    [["on the notice board", "the holiday schedule", "was displayed"], ["The holiday schedule was displayed on the notice board"]],
+    [["before leaving the room", "all the lights", "please turn off"], ["Please turn off all the lights before leaving the room"]],
+    [["to the customer service team", "the escalated ticket", "was forwarded"], ["The escalated ticket was forwarded to the customer service team"]],
+    [["for twenty minutes", "the morning express", "was held back"], ["The morning express was held back for twenty minutes"]],
+    [["that was missing", "the administrative assistant", "located the file"], ["The administrative assistant located the file that was missing"]],
+    [["in the computer laboratory", "food and beverages", "are strictly prohibited"], ["Food and beverages are strictly prohibited in the computer laboratory"]],
+    [["to improve speed", "the database indexing", "was optimized"], ["The database indexing was optimized to improve speed"]],
+    [["with the vendor", "the contract terms", "the manager renegotiated"], ["The manager renegotiated the contract terms with the vendor"]],
+    [["during the fire drill", "the designated stairs", "everyone used"], ["Everyone used the designated stairs during the fire drill"]],
+    [["to discuss the feedback", "a brief meeting", "we arranged"], ["We arranged a brief meeting to discuss the feedback"]],
+    [["by Friday afternoon", "your timesheets", "please submit"], ["Please submit your timesheets by Friday afternoon"]]
+  ],
+  C: [
+    [["Did you get a chance to review my draft?", "Not yet, I've been stuck in back-to-back calls.", "No worries, tomorrow morning works too.", "Great, I'll send it again as a reminder."], "What will the woman do?", ["send", "remind", "resend", "send again"]],
+    [["The vending machine on our floor is out of order.", "Again? IT said they fixed it last week.", "Maybe try the one on the third floor.", "Good idea, I'll head there now."], "Where will the man go?", ["third floor", "3rd floor", "floor 3"]],
+    [["I heard the client pushed the launch date.", "Yes, to the fifteenth instead of the tenth.", "That gives us a bit more breathing room.", "True, but we still need final approval by Monday."], "What is needed by Monday?", ["approval", "final approval"]],
+    [["Can we squeeze in a call before lunch?", "I have back-to-back meetings until one.", "What about right after lunch then?", "That works, let's say one-thirty."], "When will they have the call?", ["1:30", "one thirty", "1.30", "one-thirty"]],
+    [["The new intern seems really promising.", "Agreed, she picked up the tool in two days.", "Should we consider her for the full-time role?", "Let's discuss it with HR next week."], "Who will they talk to?", ["hr", "human resources"]],
+    [["Our booth at the fair didn't get much footfall.", "I think we were placed too far from the entrance.", "Should we request a better spot next year?", "Definitely, I'll note it for the organisers."], "What will the man do?", ["note", "tell organisers", "request", "note it"]],
+    [["The invoice you sent has the wrong amount.", "Sorry about that, let me correct it right away.", "Please also update the due date.", "Sure, I'll resend it within the hour."], "When will the corrected invoice be sent?", ["within the hour", "hour", "1 hour", "in an hour"]],
+    [["I think we should switch vendors for printing.", "The current one has been reliable though.", "True, but their rates went up recently.", "Let's compare quotes before deciding."], "What will they do before deciding?", ["compare", "get quotes", "compare quotes"]],
+    [["Are you attending the leadership workshop?", "I wasn't planning to, it clashes with my shift.", "You could ask your supervisor to swap it.", "That's a good idea, I'll ask her today."], "Who will the woman ask?", ["supervisor", "manager"]],
+    [["The report has a few formatting issues.", "I'll clean it up before the noon review.", "Also double check the chart on page two.", "Noted, I'll fix that too."], "What will the man check?", ["chart", "page two", "page 2", "the chart"]],
+    [["We're short-staffed for the evening shift.", "Can we ask someone from the morning team?", "Priya said she could stay back if needed.", "Perfect, let's confirm with her."], "Who might stay back?", ["priya"]],
+    [["The client wants the colours changed again.", "This is the third revision this week.", "I know, but let's keep them happy for now.", "Fine, I'll make the changes by tonight."], "When will the changes be made?", ["tonight", "by tonight"]],
+    [["Has the network access been granted for the new joiners?", "The tickets were raised yesterday, but security approval is pending.", "Let's escalate it to the facility helpdesk.", "I will send an email right now."], "What is still pending?", ["approval", "security approval", "access"]],
+    [["Where can I find the updated trainer evaluation rubric?", "It is saved in the shared training repository under assessment forms.", "Could you ping me the direct hyperlink?", "Sure, sending it right now on chat."], "Where is the rubric saved?", ["repository", "shared drive", "training repository"]],
+    [["Is the bus departing on schedule today?", "The driver said there is a fifteen minute delay due to traffic.", "Will we miss the beginning of the ceremony?", "No, the opening remarks begin at ten."], "How long is the bus delay?", ["15 minutes", "fifteen minutes", "15 mins"]],
+    [["Did Mr. Sharma confirm his attendance for tomorrow?", "He said he has an urgent client presentation in the morning.", "Will he be able to attend the afternoon session?", "Yes, he will join right after lunch."], "When will Mr. Sharma join?", ["afternoon", "after lunch"]],
+    [["The projector in conference room B is flickering.", "Did you check the cable connection under the desk?", "Yes, it looks completely undamaged.", "Let's call maintenance before the client arrives."], "Who will they call for help?", ["maintenance", "it support", "technician"]],
+    [["Do we need to dress formally for Friday's session?", "The invite mentions smart casual attire.", "So business suits aren't required?", "No, just neat collared shirts."], "What is the dress code for Friday?", ["smart casual", "casual"]],
+    [["How many scholars passed the preliminary assessment?", "Twenty-eight out of thirty scholars cleared it successfully.", "What about the remaining two?", "They will take a retest on Monday."], "How many scholars cleared the assessment?", ["28", "twenty-eight", "twenty eight"]],
+    [["Could you help me set up the presentation slides?", "I'm finalizing the attendance sheet right now.", "How long will that take?", "Give me five minutes and I'll be right over."], "How long will the man take?", ["five minutes", "5 minutes", "5 mins"]],
+    [["Where did you leave the keys to the lab?", "I handed them over to the security guard on duty.", "Did he log it in the register?", "Yes, I signed for it as well."], "Who has the lab keys?", ["security guard", "security", "guard"]],
+    [["Is the cafeteria serving breakfast tomorrow?", "Only until nine o'clock due to the maintenance inspection.", "What time does it open?", "It opens at seven thirty."], "Until when is breakfast served?", ["nine", "9:00", "nine o'clock", "9 am"]],
+    [["Did the client approve our batch training plan?", "Yes, but they requested two additional mock sessions.", "Can we schedule those for Saturday?", "Saturday morning would work best."], "What did the client request?", ["mock sessions", "two mock sessions", "mocks"]],
+    [["Has the new technician arrived at the desk?", "Not yet, his flight was delayed by an hour.", "Should we reschedule the system handover?", "Let's wait until two o'clock."], "Why is the technician delayed?", ["flight delay", "flight", "traffic"]],
+    [["Did you submit the reimbursement form?", "Not yet, I need the receipt from the taxi driver.", "Finance accepts digital receipts as well.", "In that case, I will upload it right now."], "What was missing from the form?", ["receipt", "taxi receipt"]],
+    [["Are you free for a ten-minute discussion?", "I'm preparing for the client call right now.", "When will that call conclude?", "I should be completely free around three."], "When will the woman be free?", ["three", "3:00", "three o'clock", "3 pm"]],
+    [["Has the air conditioning been fixed in lab four?", "The facilities team replaced the cooling fan this morning.", "Is it comfortable in there now?", "Yes, the room temperature is back to normal."], "Which team fixed the air conditioning?", ["facilities", "facilities team", "maintenance"]],
+    [["Where are we having the batch celebration?", "We reserved a banquet hall near the main railway station.", "Did everyone confirm their attendance?", "Twenty-five trainees confirmed so far."], "Where is the banquet hall located?", ["near station", "railway station", "station"]],
+    [["Did you get the updated roster for next week?", "David said he would post it on the team board by noon.", "Can we request a shift change before then?", "Yes, but you need supervisor approval."], "Who will post the roster?", ["david"]],
+    [["Why was the morning meeting postponed?", "The senior director had an emergency client escalation.", "Will we meet later this afternoon?", "Yes, the calendar invite is moved to four."], "What time is the meeting now?", ["four", "4:00", "4 pm", "four o'clock"]],
+    [["Did the shipment of headsets arrive today?", "Only forty headsets arrived in the morning dispatch.", "How many are we still waiting for?", "Another twenty should arrive tomorrow."], "How many headsets arrived today?", ["40", "forty"]],
+    [["Do you know who took the spare whiteboard markers?", "I saw Neha borrowing them for the workshop in room three.", "Will she return them after the session?", "Yes, she promised to return them by noon."], "Who borrowed the markers?", ["neha"]],
+    [["Did you complete the voice queue certification?", "I passed the listening test, but I have to retake speaking.", "When is your retest scheduled?", "Next Tuesday morning at ten."], "Which test will the man retake?", ["speaking", "speaking test"]],
+    [["Can we extend the deadline for the project report?", "The client specifically asked for everything by Thursday.", "What if we deliver an interim summary first?", "That might work, let me ask the manager."], "What day does the client expect the report?", ["thursday"]],
+    [["Who is conducting the workshop on phone etiquette?", "A corporate trainer named Priya is coming from Bangalore.", "Is it mandatory for all new scholars?", "Yes, everyone in batch one must attend."], "Who is conducting the workshop?", ["priya"]],
+    [["Did you print the attendance sheets for the batch?", "The printer ran out of paper twenty minutes ago.", "Did you check the stationery cupboard?", "Yes, I just refilled the paper tray."], "Why couldn't the woman print earlier?", ["out of paper", "no paper", "paper"]],
+    [["Has the client signed the service contract?", "They asked their legal team to examine clause five.", "How long will that review take?", "Their counsel promised an answer by Wednesday."], "Which clause is being reviewed?", ["clause five", "clause 5", "five", "5"]],
+    [["Where did you park the visitor van?", "In the underground bay next to the cafeteria.", "Is special security clearance required there?", "Yes, visitors must show a valid parking pass."], "Where is the van parked?", ["underground", "cafeteria", "underground bay"]],
+    [["What time does the final assessment end?", "The written part finishes at four, and speaking continues till five.", "Are scores released on the same day?", "Yes, the automated scorecards are generated immediately."], "What time does the speaking part end?", ["five", "5:00", "5 pm"]],
+    [["Who should I contact about my missing ID badge?", "Speak to Ramesh in facilities on the ground floor.", "Does his office open before eight?", "No, he begins his shift at eight-thirty."], "Who handles ID badges?", ["ramesh", "facilities"]],
+    [["Did you receive the customer feedback survey?", "Yes, ninety percent of respondents gave us top ratings.", "What was the main suggestion for improvement?", "They requested faster response times on web chat."], "What area needs improvement?", ["chat", "response times", "web chat"]],
+    [["Can I borrow your laptop charger for an hour?", "Mine is plugged in behind workstation twelve.", "Will you need it back before noon?", "Yes, I have an external client demo at eleven-thirty."], "Where is the charger plugged in?", ["workstation twelve", "workstation 12", "desk 12"]],
+    [["Are we ordering lunch for the visiting delegates?", "Yes, we arranged catering from the hotel across the street.", "Did you include vegetarian selections?", "Half the boxes are completely vegetarian."], "Where was lunch ordered from?", ["hotel", "hotel across the street"]],
+    [["Why hasn't the training portal updated my score?", "The batch results sync automatically every two hours.", "When was the last update?", "It synced at one o'clock, so check again at three."], "How often does the portal sync?", ["two hours", "every two hours", "2 hours"]],
+    [["Did you finish checking the voice call transcripts?", "I reviewed fifteen calls before lunch.", "How many are left in the queue?", "Only five calls remaining for today."], "How many calls are left?", ["five", "5"]],
+    [["When does the annual appraisal cycle begin?", "Human resources will launch the self-evaluation forms in October.", "Is there a briefing session scheduled?", "Yes, next Wednesday afternoon."], "In which month does the appraisal begin?", ["october"]],
+    [["Did the courier deliver the replacement monitor?", "The driver called saying the address was incomplete.", "Did you provide our floor number?", "Yes, he should arrive within twenty minutes."], "Why was the monitor delayed?", ["incomplete address", "address"]],
+    [["Who will facilitate the team building activity?", "Arun volunteered to lead the outdoor simulation.", "What time does it start?", "Right after the morning tea break at eleven."], "Who will lead the activity?", ["arun"]],
+    [["Has everyone submitted the project declaration form?", "All except two scholars who were on medical leave.", "When will those two submit?", "They promised to complete it upon returning tomorrow."], "How many scholars are pending?", ["two", "2"]],
+    [["Can we use conference room C for the interview?", "Management has reserved it for a regional board meeting.", "Is room A available instead?", "Yes, room A is open until four o'clock."], "Which room is available?", ["room a", "room A"]],
+    [["Did you order extra pens for the exam hall?", "The stationery vendor delivered three boxes this morning.", "Are there enough for all fifty candidates?", "Yes, each box contains twenty-five pens."], "How many boxes were delivered?", ["three", "3", "three boxes"]]
+  ],
+  D: [
+    ["We finally managed to ___ a compromise after hours of talks.", ["reach", "find", "strike", "achieve"]],
+    ["Please make sure to ___ off all the equipment before leaving.", ["switch", "turn", "power"]],
+    ["He tends to ___ credit for work done by his team.", ["take", "claim"]],
+    ["The client asked us to ___ down the proposal in writing.", ["put", "write", "lay"]],
+    ["It's hard to ___ up with her pace of work.", ["keep"]],
+    ["The two teams finally decided to ___ forces on the project.", ["join", "combine", "unite"]],
+    ["She always ___ great pride in her attention to detail.", ["takes"]],
+    ["We need to ___ out a clearer plan before Monday.", ["work", "draw", "map", "figure"]],
+    ["His excuse didn't really ___ water with the manager.", ["hold"]],
+    ["The negotiations eventually broke ___ without an agreement.", ["down"]],
+    ["Her presentation left a strong ___ on the panel.", ["impression", "impact"]],
+    ["The company is under growing ___ to reduce costs.", ["pressure"]],
+    ["He was quick to ___ the blame onto his colleague.", ["shift", "pass", "put"]],
+    ["It took weeks for the rumour to ___ ground.", ["gain"]],
+    ["The evidence clearly points ___ a scheduling error.", ["to", "towards"]],
+    ["Despite the setback, team morale remained remarkably ___.", ["high", "strong", "resilient", "positive"]],
+    ["The proposal failed to ___ the concerns raised earlier.", ["address", "resolve", "answer", "meet"]],
+    ["He has a habit of ___ over minor details that matter later.", ["glossing", "skipping"]],
+    ["All scholars must ___ their access cards at the main turnstile.", ["swipe", "scan", "show", "tap"]],
+    ["The supervisor asked everyone to ___ prompt replies to customer emails.", ["provide", "give", "send", "ensure"]],
+    ["Candidates must ___ their identification cards during the final interview.", ["display", "present", "show", "bring"]],
+    ["The sudden power failure ___ all active computer workstations on the floor.", ["affected", "stopped", "disabled"]],
+    ["She has demonstrated the ability to work effectively ___ tight deadlines.", ["under", "with"]],
+    ["Please ___ sure that your workstation is clean before leaving for the day.", ["make"]],
+    ["The manager decided to ___ the decision until more information was available.", ["postpone", "delay", "defer", "hold"]],
+    ["The company offered a substantial bonus to ___ employee performance.", ["boost", "reward", "increase", "improve"]],
+    ["Our team has made steady ___ toward reaching this month's targets.", ["progress"]],
+    ["You should ___ your supervisor immediately if you encounter any technical issues.", ["notify", "contact", "inform", "tell"]],
+    ["The trainer emphasized the importance of maintaining ___ eye contact during interviews.", ["good", "direct", "steady"]],
+    ["Every team member is expected to ___ their share of the project responsibilities.", ["bear", "carry", "handle", "do"]],
+    ["The operations lead asked all employees to ___ strict confidentiality regarding client data.", ["maintain", "keep", "observe", "ensure"]],
+    ["Due to heavy monsoon rains, the evening training shift was ___ by forty minutes.", ["delayed", "postponed"]],
+    ["Scholars are advised to ___ notes during the voice modulation workshop.", ["take", "make", "write"]],
+    ["The newly appointed manager was able to ___ the trust of the entire floor quickly.", ["gain", "win", "earn"]],
+    ["Please ___ your signature at the bottom of the non-disclosure document.", ["add", "put", "place"]],
+    ["He was able to ___ up with an innovative method to streamline customer ticket resolution.", ["come"]],
+    ["All participants must ___ their seatbelts while travelling on the company bus.", ["fasten", "wear"]],
+    ["Her ability to solve complex technical escalations earned her a rapid ___ within the company.", ["promotion", "rise"]],
+    ["The team worked tirelessly to ___ the client's high expectations.", ["meet", "fulfill", "match"]],
+    ["We must ___ all safety guidelines before operating the high-voltage lab equipment.", ["follow", "observe", "read"]],
+    ["The client expressed genuine ___ with how quickly their query was resolved.", ["satisfaction", "pleasure"]],
+    ["Could you please ___ an eye on the lab while I step out for lunch?", ["keep"]],
+    ["It is essential to ___ calm when dealing with an angry or frustrated customer.", ["remain", "stay", "keep"]],
+    ["The facilities team took immediate steps to ___ the water leak near the servers.", ["fix", "stop", "repair"]],
+    ["The company decided to ___ a new attendance tracking software next month.", ["introduce", "launch", "deploy", "implement"]],
+    ["Please do not ___ confidential documents unattended on your desk.", ["leave"]],
+    ["The team leader conducted a quick poll to ___ the general opinion of the group.", ["gauge", "find", "check", "measure"]],
+    ["He had to ___ his presentation short because the director had another meeting.", ["cut"]],
+    ["She made a conscious effort to ___ clear of office gossip.", ["steer", "stay", "keep"]],
+    ["The company aims to ___ its carbon footprint over the next five years.", ["reduce", "lower", "cut"]],
+    ["Please ___ receipt of this email by sending a brief confirmation.", ["acknowledge", "confirm"]],
+    ["He managed to ___ a positive impression on the visiting client delegates.", ["make", "leave"]]
+  ],
+  E: [
+    "Please confirm your seat before Thursday evening.",
+    "The office will remain closed on national holidays.",
+    "Could you send me the invoice by tomorrow morning?",
+    "My manager, Sarah, is out of office this week.",
+    "We didn't expect the results to arrive so soon.",
+    "Although he was busy, he replied to every email.",
+    "You'll need a valid ID, a form, and one photograph.",
+    "The workshop, which begins at ten, runs for two hours.",
+    "If the courier is delayed, please contact the front desk.",
+    "I'll update the spreadsheet as soon as I get the numbers.",
+    "The supervisor asked everyone to double-check their entries.",
+    "Would you prefer a morning slot or an afternoon one?",
+    "Everyone on the floor was informed about the fire drill.",
+    "In spite of the rain, the delivery arrived on time.",
+    "Daily training attendance records are monitored by the coordinator.",
+    "Technical queries should be directed to the support helpdesk.",
+    "All employees must complete the mandatory compliance training by Friday.",
+    "The project coordinator circulated the revised timeline after the meeting.",
+    "Please mute your microphone whenever you are not actively speaking.",
+    "The customer requested a formal escalation regarding the delayed shipment.",
+    "Proper ergonomic seating helps prevent workplace fatigue during long shifts.",
+    "Our batch achieved an outstanding pass percentage on the final examination.",
+    "The quarterly company newsletter highlighted several key operational milestones.",
+    "New scholars received their official corporate email credentials this morning.",
+    "Please keep your desk clean and free of confidential documents.",
+    "The trainer demonstrated effective methods for managing difficult client calls.",
+    "Our team scheduled a weekly review meeting to discuss project milestones.",
+    "All visitors must be escorted by an employee while inside the building.",
+    "The security system automatically locks all exterior doors after eight o'clock.",
+    "You can download the reference manual directly from the company portal.",
+    "The client praised our representative for providing clear and concise instructions.",
+    "A formal certificate of completion will be awarded to every graduating scholar.",
+    "Please ensure all windows are firmly closed before leaving the conference room.",
+    "The human resources department organizes monthly wellness sessions for all staff.",
+    "The network administrator scheduled a system maintenance window for Saturday night.",
+    "Consistent daily practice is the most reliable way to improve spoken fluency.",
+    "The auditor reviewed all training logs before issuing the certification.",
+    "Our team leader reminded us to verify customer account details thoroughly.",
+    "Please submit your feedback form before leaving the auditorium today.",
+    "The cafeteria offers a variety of healthy meal options every afternoon.",
+    "All scholars must wear their formal company uniforms on assessment days.",
+    "The facilities team replaced the lighting fixtures in the second-floor hallway.",
+    "She spoke with great confidence during the customer escalation review.",
+    "The project manager approved our request for additional software licenses.",
+    "We will begin our afternoon workshop promptly at one-thirty.",
+    "Please save all important project documents to the shared network drive.",
+    "The company will provide transportation for scholars attending the annual seminar.",
+    "Our supervisor commended the batch for maintaining an excellent attendance record.",
+    "Customer satisfaction scores improved noticeably over the past two quarters.",
+    "He provided clear step-by-step guidance to resolve the technical error."
+  ],
+  F: [
+    ["Farah noticed that the office recycling bins were rarely used. She spoke to her manager about placing clearer labels on each bin. Within two weeks, more employees started sorting their waste correctly, and the office reduced its general waste by nearly a third.", [["farah"], ["recycling"], ["bin", "bins"], ["manager"], ["label", "labels"], ["two weeks", "2 weeks"], ["sort", "sorting"], ["waste"], ["third", "30", "one third"]]],
+    ["A small clinic in a rural town began offering free health check-ups on the first Sunday of every month. The idea started when the local doctor noticed that many residents avoided visits due to cost. Word spread quickly, and within six months, over three hundred people had attended at least one check-up.", [["clinic"], ["rural", "town"], ["free"], ["check-up", "checkup", "check up"], ["sunday"], ["doctor"], ["cost"], ["word spread", "spread"], ["six months", "6 months"], ["three hundred", "300"]]],
+    ["Rohan realized that new scholars struggled to remember the voice queue procedures during their first week. He designed a simplified quick-reference card that clipped directly onto their monitors. Within a month, customer hold times decreased significantly and first-call resolution improved across the entire team.", [["rohan"], ["scholar", "scholars"], ["voice", "queue"], ["card", "reference"], ["hold", "time", "times"], ["month"], ["resolution"], ["team"]]],
+    ["Anita discovered that trainees often misplaced physical access keys to the simulation training suites. She proposed installing numerical keypad locks programmed with temporary passcodes sent by email. The facilities director approved the pilot system, which eliminated duplicate key expenses and saved fifteen minutes each morning.", [["anita"], ["trainee", "trainees"], ["keys", "key"], ["locks", "lock"], ["passcode", "code"], ["facilities"], ["fifteen minutes", "15 minutes"]]],
+    ["Deepak observed that meeting rooms were frequently booked on the calendar but remained empty during the scheduled hours. He introduced an automated check-in sensor that released reservations if nobody checked in within ten minutes. As a result, meeting room availability increased by forty percent across the floor.", [["deepak"], ["meeting", "rooms"], ["booked", "reservations"], ["empty"], ["sensor", "check-in"], ["ten minutes", "10 minutes"], ["forty percent", "40%"]]],
+    ["Pooja suggested creating an internal library of recorded customer escalations for new onboarding batches. She organized forty short audio recordings categorized by product issue and customer emotion. Trainees who reviewed the audio library achieved target call handling standards two weeks earlier than previous groups.", [["pooja"], ["library", "audio"], ["customer"], ["escalations", "recordings"], ["forty", "40"], ["two weeks", "2 weeks"], ["call", "standards"]]],
+    ["Vikram noticed that cafeteria lines were excessively long during the twelve-thirty lunch rush. He worked with the caterers to introduce pre-packaged meal boxes for quick grab-and-go pickup. Within a week, lunchtime waiting queues were reduced from twenty minutes down to less than five.", [["vikram"], ["cafeteria", "lunch"], ["lines", "queues"], ["boxes", "meal"], ["twenty minutes", "20 minutes"], ["five minutes", "5 minutes"]]],
+    ["Sneha recognized that new employees were overwhelmed by lengthy email attachments containing company policies. She transformed forty pages of documentation into six short visual infographics published on the internal wiki. Staff comprehension of safety protocols doubled over the following quarterly survey.", [["sneha"], ["employees", "staff"], ["policies", "documentation"], ["infographics", "visual"], ["six", "6"], ["safety", "protocols"], ["doubled"]]],
+    ["Karan identified that conference room projector bulbs burned out quickly because people forgot to power them down after meetings. He configured an automated ten-minute inactivity shutdown on all projectors. This small technical change extended projector bulb life and reduced annual equipment replacement costs significantly.", [["karan"], ["projector", "projectors"], ["forgot", "power"], ["ten-minute", "10 minutes"], ["shutdown", "inactivity"], ["costs", "replacement"]]],
+    ["Meera established a peer buddy system where experienced scholars supported newly joined trainees during their first client calls. Buddies sat alongside trainees to offer silent reassurance and quick notes on complex tickets. Within three weeks, trainee confidence ratings jumped by over fifty percent.", [["meera"], ["buddy", "system"], ["scholars", "trainees"], ["calls", "client"], ["tickets"], ["three weeks", "3 weeks"], ["fifty percent", "50%"]]],
+    ["Sunil noticed that technical support engineers spent excessive time searching for legacy software installation packages. He created a centralized digital repository organized by version number and release date. The new repository saved each engineer approximately thirty minutes of troubleshooting time every week.", [["sunil"], ["engineers"], ["software", "packages"], ["repository", "centralized"], ["version", "date"], ["thirty minutes", "30 minutes"]]],
+    ["Kavita saw that scholars often hesitated to speak during daily morning meetings because they feared making grammatical errors. She introduced a daily five-minute tongue twister challenge before each shift began. Within four weeks, scholars reported feeling much more relaxed and natural during client voice calls.", [["kavita"], ["scholars", "meetings"], ["hesitated", "errors"], ["tongue twister", "challenge"], ["five-minute", "5 minutes"], ["four weeks", "4 weeks"], ["relaxed", "voice calls"]]]
+  ]
+};
+
+// -------------------------------------------------------------
+// 2. SEPARATE SECTION-WISE DRILL QUESTION BANK
+// -------------------------------------------------------------
+const DRILL_BANK = {
+  A: [
+    "Please silence your mobile devices during the customer call.",
+    "Our batch coordinator will explain the scoring rubric at two o'clock.",
+    "The senior manager praised our prompt handling of the escalation.",
+    "Could you verify the client's email address on the account file?",
+    "Every trainee must complete thirty minutes of daily shadow speaking.",
+    "The office elevator will be under maintenance throughout the afternoon.",
+    "He suggested that we rehearse the presentation before the client joins.",
+    "The training room temperature has been set to twenty-two degrees.",
+    "Please return all borrowed reference materials to the library desk.",
+    "We will take a brief ten-minute refreshment break at eleven."
+  ],
+  B: [
+    [["in the training room", "the language coach", "conducted the drill"], ["The language coach conducted the drill in the training room"]],
+    [["before the call ends", "the customer summary", "please document"], ["Please document the customer summary before the call ends"]],
+    [["to ensure compliance", "all phone records", "are preserved"], ["All phone records are preserved to ensure compliance"]],
+    [["during the transition", "extra support", "was provided"], ["Extra support was provided during the transition"]],
+    [["on the shared server", "the new training manual", "was saved"], ["The new training manual was saved on the shared server"]],
+    [["for the upcoming batch", "thirty workstations", "were prepared"], ["Thirty workstations were prepared for the upcoming batch"]]
+  ],
+  C: [
+    [["Did you test the microphone on workstation seven?", "Yes, the audio quality was crystal clear.", "Can we assign that seat to the new trainee?", "Yes, it is completely ready for use."], "How was the microphone quality?", ["crystal clear", "clear", "good"]],
+    [["What time does the grammar workshop begin?", "The invitation says two o'clock in room four.", "Will there be a practical exercise?", "Yes, forty minutes of live speaking drills."], "What time does the workshop begin?", ["two", "2:00", "2 pm", "two o'clock"]],
+    [["Did the client approve the shift timings?", "They agreed to the morning schedule starting at eight.", "What about the evening roster?", "That will be decided in next week's meeting."], "What time does the morning schedule start?", ["eight", "8:00", "8 am", "eight o'clock"]],
+    [["Has the trainer sent the assessment scores?", "She said they will be posted on the board by noon.", "Can we view our individual section breakdown?", "Yes, full diagnostic sheets will be handed out."], "When will the scores be posted?", ["noon", "12:00", "by noon"]]
+  ],
+  D: [
+    ["All scholars must ___ their microphones before speaking during the session.", ["unmute", "enable", "check"]],
+    ["The instructor asked everyone to ___ down key vocabulary phrases.", ["write", "jot", "note"]],
+    ["Consistent practice will ___ your spoken confidence significantly.", ["boost", "increase", "improve", "raise"]],
+    ["Please ___ sure to log out of the computer lab before leaving.", ["make"]],
+    ["The team lead was very ___ with how calmly she resolved the dispute.", ["pleased", "happy", "impressed"]],
+    ["He has a habit of ___ into detail during simple briefings.", ["going"]],
+    ["We must ___ all necessary approvals before modifying client accounts.", ["obtain", "get", "secure"]],
+    ["She managed to ___ the problem without escalating to her manager.", ["solve", "fix", "resolve"]]
+  ],
+  E: [
+    "Please make sure your headset is properly connected.",
+    "The training session will begin promptly at nine o'clock.",
+    "Every scholar is expected to maintain professional etiquette.",
+    "The supervisor reviewed our batch performance this morning.",
+    "You can find the practice audio files on the shared portal.",
+    "All employees must display their identity badges at all times.",
+    "The customer requested an immediate confirmation via email.",
+    "We completed our speaking practice modules ahead of time."
+  ],
+  F: [
+    ["Arjun observed that new scholars spent too much time searching for common phone phrasal verbs during call handling. He created a double-sided laminated cheat sheet of fifty useful expressions. Within two weeks, scholars handled customer questions with thirty percent greater fluency.", [["arjun"], ["scholars"], ["phrasal verbs", "expressions"], ["cheat sheet", "card"], ["two weeks", "2 weeks"], ["thirty percent", "30%"]]],
+    ["Divya suggested introducing a five-minute silent reading exercise before each grammar lesson. Trainees highlighted unfamiliar adjectives and used them in sentences immediately. As a result, writing test scores improved across eighty percent of the cohort.", [["divya"], ["reading"], ["adjectives", "vocabulary"], ["writing", "test"], ["eighty percent", "80%"]]]
+  ]
+};
+
+// -------------------------------------------------------------
+// STATE & SHUFFLE ENGINE
+// -------------------------------------------------------------
+let activeItems = [];
+let n = 0, ans = [], mt = [], meta = {}, seen = {}, tm = null;
+let currentSessionToken = 0;
+let rec = null, micStream = null, micReady = false;
+let currentMode = 'mock'; // 'mock' or 'drill'
+let selectedDrillPart = 'A';
+let forceManualInput = false;
+
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+const fix = s => String(s).replace(/[’‘]/g, "'").replace(/[“”]/g, '"').trim();
+const norm = s => fix(s).toLowerCase().replace(/[^a-z0-9' ]/g, ' ').split(/\s+/).filter(Boolean);
+const tok = s => fix(s).match(/[A-Za-z0-9']+|[^\sA-Za-z0-9']/g) || [];
+
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function buildTestSequence(mode, drillPart) {
+  activeItems = [];
+  if (mode === 'drill') {
+    const pool = shuffle(DRILL_BANK[drillPart]);
+    pool.forEach((item, idx) => activeItems.push({ part: drillPart, data: item, origIdx: idx }));
+  } else {
+    // Official 70-Item Mock Composition sampled from MOCK_BANK (50+ available per section)
+    const counts = { A: 16, B: 8, C: 12, D: 18, E: 14, F: 2 };
+    for (const p of 'ABCDEF') {
+      const sampled = shuffle(MOCK_BANK[p]).slice(0, counts[p]);
+      sampled.forEach((item, idx) => activeItems.push({ part: p, data: item, origIdx: idx }));
+    }
+  }
+}
+
+// -------------------------------------------------------------
+// AUDIO SYNTHESIS & IMMEDIATE-CANCEL ENGINE
+// -------------------------------------------------------------
+let V = [], voiceUS = null, voiceGB = null, voiceAU = null;
+
+function loadVoices() {
+  try {
+    if (!window.speechSynthesis) return;
+    V = speechSynthesis.getVoices().filter(v => /^en/i.test(v.lang));
+    voiceUS = V.find(v => /en-US/i.test(v.lang)) || V[0];
+    voiceGB = V.find(v => /en-GB/i.test(v.lang)) || voiceUS;
+    voiceAU = V.find(v => /en-AU/i.test(v.lang)) || voiceGB;
+  } catch (e) {}
+}
+loadVoices();
+if (typeof speechSynthesis !== 'undefined' && speechSynthesis.onvoiceschanged !== undefined) {
+  speechSynthesis.onvoiceschanged = loadVoices;
+}
+
+function playCueTone(token) {
+  return new Promise(resolve => {
+    if (token !== currentSessionToken) return resolve();
+    try {
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      const actx = new AudioCtx();
+      if (actx.state === 'suspended') actx.resume();
+
+      const osc = actx.createOscillator();
+      const gain = actx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(880, actx.currentTime);
+      gain.gain.setValueAtTime(0.18, actx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.0001, actx.currentTime + 0.35);
+
+      osc.connect(gain);
+      gain.connect(actx.destination);
+      osc.start();
+      osc.stop(actx.currentTime + 0.35);
+
+      setTimeout(() => {
+        try { actx.close(); } catch(e) {}
+        if (token === currentSessionToken) resolve();
+      }, 380);
+    } catch (e) {
+      resolve();
+    }
+  });
+}
+
+function speakText(text, voiceChoice, pitch = 1, rate = 0.95, token) {
+  return new Promise(resolve => {
+    if (!window.speechSynthesis || token !== currentSessionToken) return resolve();
+    if (speechSynthesis.paused) speechSynthesis.resume();
+
+    const u = new SpeechSynthesisUtterance(text);
+    if (voiceChoice) {
+      u.voice = voiceChoice;
+      u.lang = voiceChoice.lang;
+    }
+    u.pitch = pitch;
+    u.rate = rate;
+
+    let timer = setTimeout(resolve, 12000);
+    u.onend = () => { clearTimeout(timer); resolve(); };
+    u.onerror = () => { clearTimeout(timer); resolve(); };
+
+    speechSynthesis.speak(u);
+  });
+}
+
+const wait = ms => new Promise(r => setTimeout(r, ms));
+
+async function playTaskAudio(part, data, i, token) {
+  await wait(250);
+  if (token !== currentSessionToken) return;
+
+  const voices = [voiceUS, voiceGB, voiceAU].filter(Boolean);
+  const v = voices[i % voices.length] || voiceUS;
+
+  if (part === 'A' || part === 'E') {
+    await speakText(data, v, 1, part === 'E' ? 0.92 : 0.95, token);
+  } else if (part === 'B') {
+    for (const chunk of data[0]) {
+      if (token !== currentSessionToken) return;
+      await speakText(chunk, v, 1, 0.95, token);
+      await wait(500);
+      if (token !== currentSessionToken) return;
+    }
+  } else if (part === 'C') {
+    const [lines, q] = data;
+    for (let k = 0; k < lines.length; k++) {
+      if (token !== currentSessionToken) return;
+      const spkVoice = (k % 2 === 0) ? (voiceUS || v) : (voiceGB || v);
+      const pitch = (k % 2 === 0) ? 0.95 : 1.15;
+      await speakText(lines[k], spkVoice, pitch, 0.95, token);
+      await wait(350);
+      if (token !== currentSessionToken) return;
+    }
+    if (token !== currentSessionToken) return;
+    await speakText("Question. " + q, voiceUS, 1, 0.95, token);
+  }
+}
+
+// -------------------------------------------------------------
+// MICROPHONE & SPEECH RECOGNITION
+// -------------------------------------------------------------
+const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+function initRec() {
+  if (rec || !SR) return;
+  try {
+    rec = new SR();
+    rec.lang = 'en-US';
+    rec.continuous = false;
+    rec.interimResults = false;
+    rec.onspeechstart = () => { meta.ts = Date.now(); };
+    rec.onspeechend = () => { meta.te = Date.now(); };
+    rec.onresult = e => {
+      const r = e.results[0][0];
+      meta.conf = r.confidence;
+      meta.txt = r.transcript.trim();
+      if ($('ans')) $('ans').value = r.transcript;
+      if ($('note')) $('note').textContent = '';
+    };
+    rec.onerror = () => {
+      if ($('note')) $('note').textContent = 'Microphone busy. Type response or re-click Use Microphone.';
+    };
+    rec.onend = () => {
+      try { rec.started = false; } catch (e) {}
+    };
+  } catch (err) {}
+}
+
+function startMicCapture() {
+  if (!SR) {
+    if ($('note')) $('note').textContent = 'Speech recognition not supported in this browser. Please type response.';
+    return;
+  }
+  initRec();
+  try { rec.abort(); } catch (e) {}
+  try {
+    rec.start();
+    if ($('note')) $('note').textContent = 'Listening...';
+  } catch (e) {
+    setTimeout(() => {
+      try { rec.start(); if ($('note')) $('note').textContent = 'Listening...'; } catch (e2) {}
+    }, 150);
+  }
+}
+
+async function chkM() {
+  try {
+    micStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    micReady = true;
+    initRec();
+    $('chk').textContent = 'Microphone verified and locked. Ready for assessment.';
+    $('chk').style.color = 'var(--ok)';
+  } catch (e) {
+    $('chk').textContent = 'Microphone blocked or not found. Keyboard typing fallback is available.';
+    $('chk').style.color = 'var(--red)';
+  }
+}
+
+function chkA() {
+  window.speechSynthesis.cancel();
+  playCueTone(currentSessionToken).then(() => {
+    speakText('The audio check is complete. Your speakers or headset are working properly.', voiceUS, 1, 0.95, currentSessionToken).then(() => {
+      $('chk').textContent = 'Audio test passed.';
+      $('chk').style.color = 'var(--p-blue)';
+    });
+  });
+}
+
+// -------------------------------------------------------------
+// TEST FLOW CONTROLLER
+// -------------------------------------------------------------
+function intro() {
+  currentSessionToken++;
+  window.speechSynthesis.cancel();
+  $('modeTag').innerHTML = '';
+  $('tinTop').textContent = 'SIMULATION ID: SIM-4SET';
+  $('app').innerHTML = `
+    <div class="panel">
+      <div class="part-hd">
+        <b>4 SKILLS ESSENTIAL TEST · PRACTICE PLATFORM</b>
+        <span>Interactive Assessment Simulator</span>
+      </div>
+
+      <div class="instr">
+        <strong>Practice Platform:</strong> Replicates the 70-item test structure, timing rules, cue tones, and scoring breakdown across Speaking, Listening, Reading, and Writing. Please use a headset in a quiet room.
+      </div>
+
+      <table style="margin-bottom:16px">
+        <tr><th>Part</th><th>Task</th><th>Items</th><th>Official Timer</th></tr>
+        <tr><td>Part A</td><td>Repeat Sentences</td><td>16</td><td>15s speaking</td></tr>
+        <tr><td>Part B</td><td>Sentence Builds</td><td>8</td><td>15s speaking</td></tr>
+        <tr><td>Part C</td><td>Conversations</td><td>12</td><td>10s response</td></tr>
+        <tr><td>Part D</td><td>Sentence Completion</td><td>18</td><td>25s timer</td></tr>
+        <tr><td>Part E</td><td>Dictation</td><td>14</td><td>25s timer</td></tr>
+        <tr><td>Part F</td><td>Passage Reconstruction</td><td>2</td><td>30s read / 90s rewrite</td></tr>
+      </table>
+
+      <p class="mut" style="font-weight:700;color:var(--ink)">Acoustic Hardware Verification</p>
+      <div class="btnrow" style="justify-content:flex-start;border:none;padding-top:0">
+        <button onclick="chkA()">Test Audio</button>
+        <button onclick="chkM()">Test Microphone</button>
+      </div>
+      <p id="chk" class="mut" style="min-height:16px"></p>
+
+      <div class="drill-card">
+        <b style="color:var(--p-blue);display:block;margin-bottom:6px">Option 1: Full 70-Item Mock Exam</b>
+        <p class="mut" style="margin-bottom:10px">Randomly samples 70 unique questions across all 6 sections from the dedicated 50+ question mock pool.</p>
+        <button class="pri" style="width:100%" onclick="launchSession('mock')">Start Full Mock Exam (70 Items)</button>
+      </div>
+
+      <div class="drill-card">
+        <b style="color:var(--p-blue);display:block;margin-bottom:6px">Option 2: Section-Wise Practice Mode</b>
+        <p class="mut" style="margin-bottom:10px">Drill individual sections with a dedicated set of practice exercises.</p>
+        <select id="sectionSelect" style="margin-bottom:10px">
+          <option value="A">Part A: Repeat Sentences (Speaking)</option>
+          <option value="B">Part B: Sentence Builds (Speaking & Syntax)</option>
+          <option value="C">Part C: Conversations (Listening Comprehension)</option>
+          <option value="D">Part D: Sentence Completion (Reading & Lexical Context)</option>
+          <option value="E">Part E: Dictation (Listening & Writing)</option>
+          <option value="F">Part F: Passage Reconstruction (Reading & Writing Memory)</option>
+        </select>
+        <button class="sec-sm" style="width:100%;padding:10px;font-weight:700" onclick="launchSession('drill')">Start Section Practice</button>
+      </div>
+    </div>
+  `;
+}
+
+async function launchSession(mode) {
+  currentMode = mode;
+  if (mode === 'drill') {
+    selectedDrillPart = $('sectionSelect').value;
+    $('modeTag').innerHTML = `<span class="tag-mode tag-drill">Practice: Part ${selectedDrillPart}</span>`;
+  } else {
+    $('modeTag').innerHTML = `<span class="tag-mode tag-mock">Full Mock</span>`;
+  }
+
+  if (!micReady && navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    try {
+      micStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      micReady = true;
+      initRec();
+    } catch (e) {}
+  }
+
+  buildTestSequence(currentMode, selectedDrillPart);
+  n = 0; ans = []; mt = []; seen = {};
+  showItem();
+}
+
+function ring(sec) {
+  return `<div class="center"><span class="timerbox" id="tmn">${String(sec).padStart(2, '0')}</span><div class="mut" style="margin-top:4px">seconds remaining</div></div>`;
+}
+
+function bar() {
+  const pct = Math.round((100 * n) / activeItems.length);
+  return `<div class="statusbar"><span>Item ${Math.min(n + 1, activeItems.length)} of ${activeItems.length}</span><span>${pct}% complete</span></div><div class="bar"><i style="width:${pct}%"></i></div>`;
+}
+
+function cd(tot, f, token) {
+  let t = tot;
+  const el = () => $('tmn');
+  tm = setInterval(() => {
+    if (token !== currentSessionToken) {
+      clearInterval(tm);
+      return;
+    }
+    t--;
+    if (el()) el().textContent = String(Math.max(t, 0)).padStart(2, '0');
+    if (t <= 0) {
+      clearInterval(tm);
+      f();
+    }
+  }, 1000);
+}
+
+function showItem() {
+  currentSessionToken++;
+  const activeToken = currentSessionToken;
+  clearInterval(tm);
+  window.speechSynthesis.cancel();
+  try { rec && rec.abort(); } catch (e) {}
+
+  if (n >= activeItems.length) return finish();
+
+  const curr = activeItems[n];
+  const p = curr.part;
+  const data = curr.data;
+  const t = T_CONFIG[p];
+
+  if (!seen[p]) {
+    seen[p] = 1;
+    $('app').innerHTML = bar() + `
+      <div class="panel">
+        <div class="part-hd"><b>Part ${p}: ${t[0]}</b><span>${t[1]}</span></div>
+        <div class="instr">${t[2]}</div>
+        <div class="btnrow"><button class="pri" onclick="showItem()">Continue</button></div>
+      </div>
+    `;
+    return;
+  }
+
+  let h = bar() + `<div class="panel"><div class="part-hd"><b>Part ${p}: ${t[0]}</b><span>${t[1]}</span></div>`;
+
+  if (p === 'D') {
+    h += `
+      <p class="qtext">${esc(data[0])}</p>
+      ${ring(25)}
+      <input id="ans" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Type one word">
+      <div class="btnrow"><button class="pri" onclick="nx()">Next</button></div>
+    `;
+  } else if (p === 'F') {
+    h += `
+      <div id="fb">
+        <p class="qtext">${esc(data[0])}</p>
+        <p class="mut">This passage will be removed automatically after 30 seconds.</p>
+        ${ring(30)}
+        <div class="btnrow"><button class="pri" onclick="fw()">I Have Finished Reading</button></div>
+      </div>
+    `;
+  } else {
+    h += `
+      <div class="rec live" id="recind">
+        <span class="dot"></span>
+        <span id="st">Playing audio…</span>
+      </div>
+      ${ring(t[3] || 1)}
+    `;
+
+    if (p === 'E') {
+      h += `<textarea id="ans" autocomplete="off" spellcheck="false" placeholder="Type the sentence exactly as you heard it"></textarea>`;
+    } else {
+      h += `
+        <div class="fallback-row">
+          <span>Speak clearly into your microphone after the tone.</span>
+          <label style="cursor:pointer"><input type="checkbox" id="tbFb" onchange="toggleFallback(this.checked)" ${forceManualInput ? 'checked' : ''}> Type answer</label>
+        </div>
+        <div class="btnrow" style="justify-content:flex-start;border:none;padding-top:2px">
+          <button onclick="startMicCapture()">Use Microphone</button>
+        </div>
+        <input id="ans" autocomplete="off" placeholder="Your response" ${forceManualInput ? '' : 'readonly'}>
+        <p id="note" class="mut" style="min-height:16px"></p>
+      `;
+    }
+
+    h += `<div class="btnrow"><button class="pri" onclick="nx()">Next</button></div>`;
+  }
+
+  $('app').innerHTML = h + '</div>';
+
+  if (p === 'D') {
+    cd(25, nx, activeToken);
+    $('ans').focus();
+  } else if (p === 'F') {
+    cd(30, fw, activeToken);
+  } else {
+    (async () => {
+      await playTaskAudio(p, data, n, activeToken);
+      if (activeToken !== currentSessionToken) return;
+
+      if (p === 'A' || p === 'B') {
+        await playCueTone(activeToken);
+      }
+      if (activeToken !== currentSessionToken) return;
+
+      $('st').textContent = (p === 'E') ? 'Type now' : 'Respond now';
+      meta.t0 = Date.now();
+
+      cd(t[3], nx, activeToken);
+
+      if (p === 'E') {
+        $('ans').focus();
+      } else {
+        if (!forceManualInput && SR) {
+          startMicCapture();
+        }
+      }
+    })();
+  }
+}
+
+function toggleFallback(checked) {
+  forceManualInput = checked;
+  if ($('ans')) {
+    if (checked) {
+      $('ans').removeAttribute('readonly');
+      $('ans').placeholder = 'Type your answer here...';$('ans').focus();
+    } else {
+      $('ans').setAttribute('readonly', 'true');$('ans').placeholder = 'Your response';
+    }
+  }
+}
+
+function fw() {
+  currentSessionToken++;
+  clearInterval(tm);
+  $('fb').innerHTML = `
+    <p class="mut">Rewrite the passage in your own words below.</p>
+    ${ring(90)}
+    <textarea id="ans" spellcheck="false" placeholder="Type your answer here"></textarea>
+    <div class="btnrow"><button class="pri" onclick="nx()">Next</button></div>
+  `;
+  cd(90, nx, currentSessionToken);
+  $('ans').focus();
+}
+
+function nx() {
+  currentSessionToken++;
+  clearInterval(tm);
+  window.speechSynthesis.cancel();
+  try { rec && rec.abort(); } catch (e) {}
+
+  ans.push($('ans') ?$('ans').value : '');
+  mt.push(meta);
+  meta = {};
+  n++;
+  showItem();
+}
+
+// -------------------------------------------------------------
+// SCORING ENGINE
+// -------------------------------------------------------------
+function mech(v) {
+  const s = v.trim().split(/(?<=[.!?])\s+/).filter(Boolean);
+  if (!s.length) return 0;
+  return s.filter(x => /^[A-Z]/.test(x) && /[.!?]$/.test(x)).length / s.length;
+}
+
+function flu(p, m, nwords) {
+  if (m.ts == null || m.te == null || !m.t0) return null;
+  const lat = (m.ts - m.t0) / 1000;
+  const lim = p === 'A' ? 4 : 6;
+  const ls = lat <= lim ? 1 : cl(1 - (lat - lim) / lim);
+  const d = (m.te - m.ts) / 1000;
+  if (d <= 0.3) return ls;
+  const w = nwords / d;
+  const rate = w >= 1.8 && w <= 3 ? 1 : w < 1.8 ? cl(w / 1.8) : cl(1 - (w - 3) / 1.5);
+  return 0.5 * ls + 0.5 * rate;
+}
+
+function scoreItem(curr, v, m) {
+  const p = curr.part;
+  const x = curr.data;
+  m = m || {};
+
+  if (p === 'A' || p === 'B') {
+    const Ts = (p === 'A') ? [norm(x)] : x[1].map(norm);
+    const w = norm(v);
+    const k = Ts.map(a => rat(a, w));
+    const b = k.indexOf(Math.max(...k));
+    const ok = m.txt != null && m.txt.toLowerCase() === v.trim().toLowerCase();
+    return {
+      sm: k[b],
+      vo: bag(Ts[b], w),
+      fl: ok ? flu(p, m, w.length) : null,
+      pr: ok && m.conf ? cl((m.conf - 0.62) / 0.28) : null
+    };
+  }
+  if (p === 'C') {
+    const w = norm(v), lo = v.toLowerCase();
+    return { c: x[2].some(k => w.includes(k) || (k.length > 3 && lo.includes(k))) ? 1 : 0 };
+  }
+  if (p === 'D') {
+    const cleaned = fix(v).toLowerCase();
+    return { d: x[1].some(acc => acc.toLowerCase() === cleaned) ? 1 : 0 };
+  }
+  if (p === 'E') {
+    const a = tok(x), b = tok(v);
+    const pa = a.filter(t => /^[^A-Za-z0-9']/.test(t));
+    const pb = b.filter(t => /^[^A-Za-z0-9']/.test(t));
+    return {
+      lis: bag(norm(x), norm(v)),
+      sp: rat(norm(x), norm(v)),
+      cap: bag(a.filter(t => /^[A-Z]/.test(t)), b),
+      pu: lcs(pa, pb) / Math.max(pa.length, pb.length, 1)
+    };
+  }
+
+  const lo = v.toLowerCase(), w = norm(v);
+  const cov = x[1].filter(g => g.some(k => lo.includes(k))).length / x[1].length;
+  const ln = cl((w.length - 0.5 * norm(x[0]).length) / (0.35 * norm(x[0]).length));
+  const ss = v.trim().split(/(?<=[.!?])\s+/).filter(Boolean);
+  const lk = ss.filter(z => /\b(because|but|and|so|although|while|which|who|when|after|before|then|however)\b/i.test(z)).length / (ss.length || 1);
+  return {
+    cov,
+    con: cov * ln,
+    mech: mech(v),
+    va: 0.5 * cl(new Set(w).size / (w.length || 1) / 0.85) * ln + 0.5 * cl(lk / 0.5)
+  };
+}
+
+const K_SKILLS = {
+  Speaking: [
+    ['Sentence mastery', 'A, B', 'AB', 'sm', 0.3],
+    ['Vocabulary', 'A, B', 'AB', 'vo', 0.2],
+    ['Fluency', 'A, B (mic)', 'AB', 'fl', 0.25],
+    ['Pronunciation', 'A, B (mic)', 'AB', 'pr', 0.25]
+  ],
+  Listening: [
+    ['Understanding conversations', 'C', 'C', 'c', 0.5],
+    ['Understanding spoken sentences', 'E', 'E', 'lis', 0.5]
+  ],
+  Reading: [
+    ['Vocabulary and grammar in context', 'D', 'D', 'd', 0.6],
+    ['Passage comprehension', 'F', 'F', 'cov', 0.4]
+  ],
+  Writing: [
+    ['Spelling', 'E', 'E', 'sp', 0.2],
+    ['Capitalisation', 'E', 'E', 'cap', 0.15],
+    ['Punctuation', 'E', 'E', 'pu', 0.15],
+    ['Content and sequence', 'F', 'F', 'con', 0.2],
+    ['Capitals and full stops', 'F', 'F', 'mech', 0.1],
+    ['Vocabulary and sentence variety', 'F', 'F', 'va', 0.2]
+  ]
+};
+
+const band = o => o < 30 ? 'A1' : o < 42 ? 'A2' : o < 54 ? 'B1' : o < 66 ? 'B2' : 'C1';
+const toGSE = s => Math.round(10 + ((s - 20) / 60) * 80);
+
+function lcs(a,b){const d=Array(a.length+1).fill(0).map(()=>Array(b.length+1).fill(0));for(let i=1;i<=a.length;i++)for(let j=1;j<=b.length;j++)d[i][j]=a[i-1]===b[j-1]?d[i-1][j-1]+1:Math.max(d[i-1][j],d[i][j-1]);return d[a.length][b.length]}
+const rat=(a,b)=>lcs(a,b)/Math.max(a.length,b.length,1);
+const cl=x=>Math.max(0,Math.min(1,x));
+const bag=(t,r)=>{const c=[...r];let k=0;t.forEach(w=>{const i=c.indexOf(w);if(i>-1){c.splice(i,1);k++}});return k/(t.length||1)};
+function gauge(label,val){const pct=val==null?null:Math.round(val*100);return `<tr><td>${label}</td><td>${pct==null?'Not assessed':pct+'%'}</td></tr>`}
+
+// -------------------------------------------------------------
+// RESULTS SCREEN
+// -------------------------------------------------------------
+function finish() {
+  const it = { A: [], B: [], C: [], D: [], E: [], F: [] };
+  let rv = '';
+
+  activeItems.forEach((curr, k) => {
+    const v = ans[k] || '';
+    const o = scoreItem(curr, v, mt[k]);
+    it[curr.part].push(o);
+
+    const c = (curr.part === 'A' || curr.part === 'E') ? curr.data
+      : (curr.part === 'B') ? curr.data[1][0]
+      : (curr.part === 'C') ? curr.data[1] + ' → ' + curr.data[2].join('/')
+      : (curr.part === 'D') ? curr.data[0] + ' → ' + curr.data[1].join('/')
+      : curr.data[0];
+
+    rv += `<tr><td>${curr.part}${k + 1}</td><td>${esc(v || '(blank)')}</td><td>${esc(c)}</td><td>${Object.values(o).filter(z => z != null).map(z => Math.round(z * 100) + '%').join(' / ')}</td></tr>`;
+  });
+
+  const av = (ps, key) => {
+    const z = ps.flatMap(p => it[p].map(o => o[key])).filter(z => z != null);
+    return z.length ? z.reduce((a, b) => a + b, 0) / z.length : null;
+  };
+
+  let cards = '', tot = 0, skillPct = {}, subscores = {};
+  for (const s in K_SKILLS) {
+    const rows = K_SKILLS[s].map(r => ({ l: r[0], f: r[1], w: r[4], v: av(r[2].split(''), r[3]) }));
+    const ok = rows.filter(r => r.v != null);
+    const pct = ok.length ? ok.reduce((a, r) => a + r.v * r.w, 0) / ok.reduce((a, r) => a + r.w, 0) : 0;
+    const curved = Math.pow(pct, 1.3);
+    const sco = Math.round(20 + 60 * curved);
+    tot += sco;
+    skillPct[s] = pct;
+    subscores[s] = sco;
+
+    cards += `
+      <div class="panel">
+        <div class="part-hd"><b>${s}</b><span class="badge">${sco} / 80 &nbsp;·&nbsp; GSE: ${toGSE(sco)}/90 &nbsp;·&nbsp; ${band(sco)}</span></div>
+        <table><tr><th>Sub-skill</th><th>Score</th></tr>${rows.map(r => gauge(r.l, r.v)).join('')}</table>
+      </div>
+    `;
+  }
+
+  const O = Math.round(tot / 4);
+
+  let lsrw = '';
+  for (const s2 in K_SKILLS) {
+    const sco = subscores[s2];
+    lsrw += `
+      <div class="skill-card">
+        <div class="sk-name">${s2}</div>
+        <div class="sk-num">${sco}<span style="font-size:.9rem;color:var(--mut)"> / 80</span></div>
+        <div class="sk-bar"><i style="width:${Math.round(100 * (sco - 20) / 60)}%"></i></div>
+        <div class="mut" style="margin-top:4px">GSE: ${toGSE(sco)} · ${band(sco)}</div>
+      </div>
+    `;
+  }
+
+  $('app').innerHTML = `
+    <div class="score-hd">
+      <div class="lbl">Assessment Overall Score</div>
+      <div class="num">${O}</div>
+      <div class="lbl">out of 80 &nbsp;·&nbsp; ${band(O)}</div>
+      <div class="score-sub">Global Scale of English (GSE): ${toGSE(O)} / 90</div>
+    </div>
+    <div class="lsrw">${lsrw}</div>
+    <div class="panel"><details open><summary>Sub-skill Diagnostics</summary><div style="margin-top:12px">${cards}</div></details></div>
+    <div class="panel"><details><summary>Review Item Audit (${activeItems.length} total)</summary><div style="overflow-x:auto;margin-top:10px"><table><tr><th>Item</th><th>Your Answer</th><th>Target</th><th>Sub-scores</th></tr>${rv}</table></div></details></div>
+    <div class="btnrow" style="margin:16px">
+      <button onclick="window.print()">Print Score Report (PDF)</button>
+      <button class="pri" onclick="intro()">Return to Home</button>
+    </div>
+  `;
+}
+
+// Initial Boot
+intro();
+</script>
+</body>
+</html>
